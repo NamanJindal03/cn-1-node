@@ -6,5 +6,5 @@
 // console.log(sum);
 
 const {subtract, add} = require('./operations.js')
-const sum = add(10, 20); //30
+const sum = add(10, 20); //30 - temp
 console.log(sum);
