@@ -4,9 +4,16 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const rootMiddlewares = require('./middlewares/root')
+const rootMiddlewares = require('./middlewares/root');
+const productController = require('./controllers/product.controller')
 
-// app.use(express.json());
+app.use(express.json());
+//if the above is a middleware why arent we doing next??
+//already created middlewares, we do not have access to them 
+app.use((req, res, next)=>{
+    req.came_from_custom_generic_middleware = true
+    next();
+})
 
 app.get('/number/:number', (req, res) => {
     const {number} = req.params;
@@ -43,6 +50,7 @@ app.get('/number/:number', (req, res) => {
 
 app.post('/number', (req, res)=>{
     console.log(req.body);
+    console.log(req.came_from_custom_generic_middleware);
     //when we receive some data from the FE -> which we are not doing over here we will see that soon
     res.status(200).json({message: 'number received - IKYK'})
 })
@@ -60,10 +68,8 @@ function generateRandomNumberMiddleware(req, res, next){
     next()
 }
 
-app.get('/products', generateRandomNumberMiddleware, (req, res) => {
-    // console.log(req.number);
-    res.json(req.number)
-})
+app.get('/products', generateRandomNumberMiddleware, productController.sendProducts)
+app.get('/products/:productId', generateRandomNumberMiddleware, productController.sendSpecificProduct)
 
 app.get('/orders', generateRandomNumberMiddleware, (req, res) => {
     res.json(req.number)
