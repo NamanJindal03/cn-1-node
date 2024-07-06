@@ -1,11 +1,12 @@
 import express from 'express'
-import productRouter from './routes/product.routes.js'
+import allRoutes from './routes/index.routes.js'
 
 const app = express();
 app.use(express.json()); //extracting the data and putting it on req.body
 
 // app.get('/product/:productId', getProductDetails);
-app.use('/product', productRouter)
+// app.use('/order', )
+app.use('/', allRoutes)
 
 
 
