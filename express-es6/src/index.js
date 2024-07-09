@@ -11,7 +11,7 @@ app.use('/', allRoutes)
 
 
 app.listen(3000, ()=>{
-    console.log('es6 server listening at port', 3000)
+    console.log('es6 server slistening at port', 3000)
 })
 
 

@@ -19,7 +19,10 @@ const deleteProduct = (req, res) => {
 }
 
 const addProduct = (req, res) => {
-
+    console.log(req.body);
+    console.log(req.files)
+    // console.log(req.file)
+    res.json('file technically should be uploaded')
 }
 
 export {getProductDetails, updateProduct, deleteProduct, addProduct}
