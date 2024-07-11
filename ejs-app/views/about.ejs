@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>This page is about the person who is logged in </div>
+    <div>About <%= name %></div>
+    <div>soon we will be studying with ejs as well</div>
+    <div>
+        <%= JSON.stringify(productArr)%>
+        
+        <% for(var i = 0; i < productArr.length; i++) { %>
+            <li><%= productArr[i] %></li>
+        <% } %>
+
+        <% productArr.forEach((element) => { %>
+            <span><%=element %></span>
+        <% })%>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
