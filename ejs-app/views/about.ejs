@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include('partials/header') %>
     <div>This page is about the person who is logged in </div>
     <div>About <%= name %></div>
     <div>soon we will be studying with ejs as well</div>
@@ -20,6 +21,7 @@
             <span><%=element %></span>
         <% })%>
     </div>
+    <%- include('partials/footer') %>
     <script src="script.js"></script>
 </body>
 </html>
