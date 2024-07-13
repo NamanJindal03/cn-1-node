@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
+const {setUser, getUser} = require('../service/session.service')
 let inMemoryUserDatabase = [];
 function registerUser(req, res){
     console.log(req.body);
@@ -23,7 +24,9 @@ function loginUser(req, res){
     })
     console.log(user);
     if(user){
-        res.cookie("sessionId", uuidv4())
+        const uniqueIdentifier = uuidv4();
+        setUser(uniqueIdentifier, user);
+        res.cookie("sessionId", uniqueIdentifier);
         return res.redirect('/')
     }
     return res.redirect('/login')
