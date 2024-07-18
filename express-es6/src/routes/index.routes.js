@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { jobDetails } from "../constants.js";
+import eigthteenJuly from "../routes/18thJuly.routes.js"
 const router = Router();
 
 import productRouter from './product.routes.js'
@@ -7,6 +8,8 @@ import productRouter from './product.routes.js'
 //usecase of multer - inside the post
 router.use('/product', productRouter);
 //router.use('/order', orderRouter);
+router.use('/18thJuly', eigthteenJuly)
+
 
 router.route('/example/:path')
     .get((req, res)=>{
@@ -43,15 +46,14 @@ router.route('/jobs')
     .get( (req, res)=>{
         res.render('jobs', jobDetails)
     })
-    .post(getRole, (req, res) => {
-        const isRecruiter = req.user === 'recruiter'
-        if(!isRecruiter){
-            return res.status(400).json({error: 'not authorized'})
-        }
-        //append the file to store that job information
-    })
+    // .post(getRole, (req, res) => {
+    //     const isRecruiter = req.user === 'recruiter'
+    //     if(!isRecruiter){
+    //         return res.status(400).json({error: 'not authorized'})
+    //     }
+    //     //append the file to store that job information
+    // })
 
-router.route('/18thJuly', )
 
 /* 
     /api/v1
