@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="card">
+        <h1><%=companyName %></h1>
+        <div style="display: flex; column-gap: 3px;">
+            <% for(let i=0; i<skills.length; i++){ %>
+                <span style="padding: 0.25em;">
+                    <%= skills[i]%>
+                </span>
+            <% } %>
+        </div>
+        
+
+        <%if(user){ %>
+            <button>delete font awesome icon</button>
+            <button>edit font awesome icon</button>
+        <% }%>
+    </section>
+</body>
+</html>
+
+<!-- 
+    
+
+-->
